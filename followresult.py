@@ -53,7 +53,6 @@ class followResultPage(webapp.RequestHandler):
     friends = get_friends()
     for result in search_results:
       if not result.user.screen_name in friends:
-        API.CreateFriendship(result.user.screen_name)
         follow_dict.update({'screen_name':result.user.screen_name})
         follow_dict.update({'profile_image_icon':result.user.profile_image_url})
         follow_dict.update({'text':result.text})
