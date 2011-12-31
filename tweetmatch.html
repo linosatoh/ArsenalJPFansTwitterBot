@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+<title>ArsenalJPFans Bot Log</title>
+<body>
+    <div id="tweet_match">
+        {% for mp in match_programs %}
+            <p class="match_title">match_title:
+              {{ mp.match_title }} {{ mp.match_detail }}<br />
+              </p>
+        {% endfor %}
+    </div>
+</body>
+</html>

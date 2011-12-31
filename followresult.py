@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-TERMに指定された検索ワードをTwitterに検索を掛けて
-15件分をさかのぼって、キーワードを含むTweetをしたユーザを自動的にフォローします。
+Search for Twitter TERM Words for 15 tweets.
 """
 import sys
 import twitter
@@ -20,7 +19,7 @@ if 'ascii'==sys.getdefaultencoding():
   sys.stdin = stdin
   sys.stdout = stdout
 
-# for twitter OAuth. Fill the fields
+# for twitter OAuth. fill your account
 CONSUMER_KEY = ''
 CONSUMER_SECRET = ''
 ACCESS_KEY = ''
@@ -39,12 +38,9 @@ API = twitter.Api(
 
 class followResultPage(webapp.RequestHandler):
   """
-  GAEのリクエストハンドラーを継承したクラス
+  GAE Request Handler implementetaion.
   """
   def get(self):
-    """
-    ゲットの場合の処理
-    """
     search_results = get_search_results(TERM)
     
     follow_dict = {}
@@ -66,14 +62,11 @@ class followResultPage(webapp.RequestHandler):
     self.response.out.write(template.render(path, template_values))
 
 def get_friends():
-  """
-  Twitterのフォローリストの取得
-  """
   return API.GetFriends()
 
 def get_search_results(term):
   """
-  検索の実行。言語は日本語限定
+  execute search.
   """
   search_results = API.GetSearch(term=term, geocode=None, 
     since_id=None, per_page=15, page=1, lang='ja', show_user='true', 

@@ -1,5 +1,5 @@
 application: arsenaljpfans
-version: 3
+version: 4
 runtime: python
 api_version: 1
 
@@ -7,5 +7,9 @@ handlers:
 - url: /stylesheets
   static_dir: stylesheets
 
-- url: /.*
+- url: /
   script: followresult.py
+
+- url: /ArsenalTVGetter
+  script: ArsenalTVGetter.py
+  login: admin

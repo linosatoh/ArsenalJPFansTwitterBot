@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+<title>ArsenalJPFans Bot Log</title>
+<body>
+    <div id="follow_result">
+        {% for fu in following_users %}
+            <p class="follow_user">follow_user:
+              <a href="https://twitter.com/#!/{{ fu.screen_name }}">
+              <img src="{{fu.profile_image_icon}}" />
+                @{{ fu.screen_name }}
+              </a>
+              tweet by :{{ fu.text }}<br />
+              </p>
+        {% endfor %}
+    </div>
+</body>
+</html>
